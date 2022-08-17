@@ -37,9 +37,9 @@ async function starting(){
     try{
         //database conection and tables creation....
 
-        await db.authenticate();
+      //  await db.authenticate();
         
-        await db.sync()
+     //   await db.sync()
         // await db.drop()
         console.log("conected to the database!!")
         

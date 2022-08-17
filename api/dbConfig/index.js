@@ -21,7 +21,7 @@ const db = new Sequelize(
          dialectOptions: // realizado con ternario ? take : {visu}
             process.env.NODE_ENV === 'production' 
             ? {
-                
+
                 ssl:{
                     require:true,
                     rejectUnauthorized:false
@@ -57,6 +57,20 @@ const db = new Sequelize(
 //     }
 
 // )
+
+
+
+await db.authenticate().then(()=>{
+    console.log("conected to the database!!")
+}).catch(error=>{
+    console.log("Unable to connect to the database " + error )
+} )
+        
+await db.sync().then(()=>{
+    console.log("tables created")
+}).catch(error=>{
+    console.log("Unable to create tables " + error )
+} )
 
 
 
