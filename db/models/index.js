@@ -1,8 +1,11 @@
 const dbConfig = require('../config.js');
-
+import { initModels } from './initmodel.js';
 const {Sequelize, DataTypes} = require('sequelize');
 
 const sequelize = new Sequelize(
+
+    // 🚦🚦🚦 work for freesql deploy and localhost
+
     // dbConfig.DB,
     // dbConfig.USER,
     // dbConfig.PASSWORD, {
@@ -23,7 +26,7 @@ const sequelize = new Sequelize(
     //     }
     // }
 
-// workkk for Cloud Cluster deployment
+// 🚦🚦🚦 workkk for Cloud Cluster deployment
 
 
 {
@@ -62,8 +65,8 @@ const db = {}
 db.Sequelize = Sequelize
 db.sequelize = sequelize
 
-db.products = require('./productModel.js')(sequelize, DataTypes)
-db.reviews = require('./reviewModel.js')(sequelize, DataTypes)
+db.users = require('./user.model')(sequelize, DataTypes)
+//db.reviews = require('./reviewModel.js')(sequelize, DataTypes)
 
 db.sequelize.sync({ force: false })
 .then(() => {
@@ -74,15 +77,15 @@ db.sequelize.sync({ force: false })
 
 // 1 to Many Relation
 
-db.products.hasMany(db.reviews, {
-    foreignKey: 'product_id',
-    as: 'review'
-})
+// db.products.hasMany(db.reviews, {
+//     foreignKey: 'product_id',
+//     as: 'review'
+// })
 
-db.reviews.belongsTo(db.products, {
-    foreignKey: 'product_id',
-    as: 'product'
-})
+// db.reviews.belongsTo(db.products, {
+//     foreignKey: 'product_id',
+//     as: 'product'
+// })
 
 
 
