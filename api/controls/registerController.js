@@ -95,13 +95,27 @@ export const  loginControl = async(req,res,next) =>{
     })
     
 
-
     
     
 }
 
 
 
+export const  logout = async(req,res,next)=>{
+
+    const {id,email} = req.user
+ 
+    Users.update({isLogIn:false}, {where:{user_id: id}})
+ 
+    .then(result=>res.json({result, message:"user log out"}))
+ 
+    .catch(()=>{
+     const err = new Error("cant log out the user, there is a problem whit the database")
+     err.status=500
+     next(err)
+    })
+ 
+ }
 
 
 
