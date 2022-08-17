@@ -1,8 +1,24 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-
+import axios from 'axios'
+import { useState, useEffect } from 'react'
 export default function Home() {
+
+  const [data , setData] = useState(null)
+
+useEffect(() => {
+
+  const res = axios.get('http://localhost:5000/api/test').then(res => {
+
+  console.log('response',res.data)
+  setData(res.data)
+})
+
+}
+, [])
+
+
   return (
     <div className={styles.container}>
       <Head>
@@ -11,11 +27,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+
+<div>
+  <h1>response : {data}</h1>
+</div>
+
    
-      <video loading="lazy" muted="muted" src="https://cdnl.iconscout.com/lottie/premium/thumb/man-help-woman-for-pregnancy-exercise-4054967-3379620.mp4" type="video/mp4" autoplay="autoplay" loop="loop"></video>
-
-
-      <picture class="thumb_PdMgf"><img src="https://cdn3d.iconscout.com/3d/premium/thumb/ramen-noodles-4604426-3815462.png" alt="Ramen Noodles 3D Illustration" loading="lazy"/></picture>
+   
 
     </div>
   )
