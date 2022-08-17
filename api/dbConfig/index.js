@@ -1,9 +1,10 @@
 
 
-
+import dbConfig from './freesql.js'
 import { Sequelize } from 'sequelize'
 //import dotenv from "dotenv"
 //dotenv.config()
+
 
 const db = new Sequelize(
 
@@ -14,23 +15,51 @@ const db = new Sequelize(
         port:'17422',
         database:"mydata",
         dialect:'mysql',
-        logging:false,
-        dialectOptions: // realizado con ternario ? take : {visu}
+      
+    
+         logging:false,
+         dialectOptions: // realizado con ternario ? take : {visu}
             process.env.NODE_ENV === 'production' 
             ? {
+                
                 ssl:{
                     require:true,
                     rejectUnauthorized:false
                 }
-            } :  {}
+            } :  {},
     
-    
+   
     
         }
     
-
-
 )
+
+
+
+// const db = new Sequelize(
+
+//     // 🚦🚦🚦 work for freesql deploy and localhost
+
+//     dbConfig.DB,
+//     dbConfig.USER,
+//     dbConfig.PASSWORD, {
+//         host: dbConfig.HOST,
+//         dialect: dbConfig.dialect,
+//         operatorsAliases: false,
+
+//         pool: {
+//             max: dbConfig.pool.max,
+//             min: dbConfig.pool.min,
+//             acquire: dbConfig.pool.acquire,
+//             idle: dbConfig.pool.idle
+
+//         }
+//     }
+
+// )
+
+
+
 
 
   export default db

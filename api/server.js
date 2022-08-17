@@ -15,6 +15,7 @@ app.use(express.json());
 // use morgan to log requests to the console
 app.use(morgan('dev'));
 import auth from "./routes/auth.js"
+import category from "./routes/category.js"
 
 app.get("/api/test", (req, res) => {
 
@@ -23,6 +24,7 @@ app.get("/api/test", (req, res) => {
 );
 
 app.use("/api/auth", auth)
+app.use("/api/category", category)
 
 
 
