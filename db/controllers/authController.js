@@ -63,7 +63,7 @@ exports.loginUser = catchAsync(async (req, res, next) => {
     { id: user.id }, // Token payload
     process.env.JWT_SECRET, // Secret key
     {
-      expiresIn: process.env.JWT_EXPIRES_IN
+      expiresIn: '2d' // Token expires in 2 days
     }
   );
 
