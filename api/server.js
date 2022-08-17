@@ -5,13 +5,15 @@ import dotenv from "dotenv"
 import cors from "cors"
 import bodyParser from "body-parser"
 import db from "./dbConfig/index.js"
+import morgan from "morgan"
 dotenv.config()
 const app = express()
 //const {sequelize} = require("./dbConfig/index")
 
 app.use(cors());
 app.use(express.json());
-
+// use morgan to log requests to the console
+app.use(morgan('dev'));
 import auth from "./routes/auth.js"
 
 app.get("/api/test", (req, res) => {
