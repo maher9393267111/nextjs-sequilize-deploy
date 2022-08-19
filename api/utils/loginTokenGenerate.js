@@ -8,8 +8,8 @@ export default function loginToken(user_data){
 
     const user = {
                                 
-        id:user_data.user_id,
-        email:user_data.user_email
+        id:user_data.id,
+        email:user_data.email
     }
     const token = jwt.sign(user, SECRETE_TOKEN_KEY)
     return token

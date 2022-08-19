@@ -2,6 +2,8 @@
 
 import dbConfig from './freesql.js'
 import { Sequelize } from 'sequelize'
+//import Products from '../models/productModel.js';
+//import Categories from '../models/CommentsModel.js';
 //import dotenv from "dotenv"
 //dotenv.config()
 
@@ -13,7 +15,7 @@ const db = new Sequelize(
         username:'maher93',
         password:'maher9393',
         port:'17422',
-        database:"mydata",
+        database:"maherdata",
         dialect:'mysql',
       
     
@@ -27,6 +29,7 @@ const db = new Sequelize(
                     rejectUnauthorized:false
                 }
             } :  {},
+       
     
    
     
@@ -46,7 +49,7 @@ const db = new Sequelize(
 //         host: dbConfig.HOST,
 //         dialect: dbConfig.dialect,
 //         operatorsAliases: false,
-
+// //logging:true,
 //         pool: {
 //             max: dbConfig.pool.max,
 //             min: dbConfig.pool.min,
@@ -71,6 +74,10 @@ await db.sync().then(()=>{
 }).catch(error=>{
     console.log("Unable to create tables " + error )
 } )
+
+
+
+
 
 
 

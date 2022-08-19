@@ -7,16 +7,18 @@ export default function Home() {
 
   const [data , setData] = useState(null)
 
+
 useEffect(() => {
-  
 
-  const process = process.env.NODE_ENV === 'production' ? 'nextjs-sequilize-deploy.vercel.app/api/test' : 'localhost:5000/api/test'
 
-  const res = axios.get(process).then(res => {
+  const process =  'http://localhost:3001/api/reviews'
+
+const res = axios.get(process).then(res => {
 
   console.log('response',res.data)
   setData(res.data)
 })
+
 
 }
 , [])
@@ -32,7 +34,7 @@ useEffect(() => {
 
 
 <div>
-  <h1>response : {data}</h1>
+  <h1>response : {data?.length}</h1>
 </div>
 
    

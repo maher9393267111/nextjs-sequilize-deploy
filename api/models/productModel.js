@@ -18,27 +18,27 @@ const Products = db.define("products", {
     },
     price: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: true
         
       },
       desc: {
         type: Sequelize.TEXT,
-        allowNull: false
+        allowNull: true
         
       },
       quantity: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: true
         
       },
-    //   categ_id: {
-    //     type: Sequelize.INTEGER(10),
-    //     allowNull: false
-    // },
+      cat_id: {
+        type: Sequelize.INTEGER(10),
+        allowNull: false
+    },
     
   });
 
-  
+
 
 
 

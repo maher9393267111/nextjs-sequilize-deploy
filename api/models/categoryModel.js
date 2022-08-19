@@ -5,7 +5,7 @@ import Products from './productModel.js';
 const Categories = db.define("categories", {
     id:{
     
-        
+
         type:Sequelize.INTEGER,
         autoIncrement:true,
         allowNull:false,
@@ -22,7 +22,7 @@ const Categories = db.define("categories", {
         
       }
     
-  });
+  },{ freezeTableName: true});
 
 
 //   Categories.hasMany(Products,
@@ -41,6 +41,22 @@ const Categories = db.define("categories", {
 //       hooks: true 
        
 //     })
+
+
+
+// Categories.hasMany(Products, {
+//     foreignKey: 'cat_id',
+//     as: 'product'
+// })
+
+
+
+// Products.belongsTo(Categories, {
+//     foreignKey: 'cat_id',
+//     as: 'category'
+// })
+
+
 
 
   

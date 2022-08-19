@@ -16,6 +16,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 import auth from "./routes/auth.js"
 import category from "./routes/category.js"
+import product from "./routes/product.js"
 
 app.get("/api/test", (req, res) => {
 
@@ -25,6 +26,8 @@ app.get("/api/test", (req, res) => {
 
 app.use("/api/auth", auth)
 app.use("/api/category", category)
+app.use("/api/product", product)
+
 
 
 
